@@ -40,6 +40,7 @@ body {
 
 .container {
   display: grid;
+  // heaser: 80%, features: min-content, story: 40%, homes, gallery, footer: min-content
   grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
   // screen size between 1100 -1200  1140 / 8 = 142.5 => 14rem(140px)
   // max width = 14rem, min width = min-content
