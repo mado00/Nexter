@@ -1,8 +1,3 @@
-
-
-// 5% of viewport height
-// img: min-content(7rem), details: max-content
-
 .realtors {
   background-color: $color-secondary;
   grid-column: col-start 7 / full-end;
@@ -14,24 +9,27 @@
   justify-items: center;
   grid-row-gap: 2rem;
 
-  // @media only screen and (max-width: $bp-medium) {
-  //     grid-column: 1 / -1;
-  // }
+  @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / -1;
+  }
 
   &__list {
       display: grid;
+      // img: min-content(7rem), details: max-content
       grid-template-columns: min-content max-content;
       grid-column-gap: 2rem;
+      // 5% of viewport height
       grid-row-gap: 5vh;
       align-items: center;
 
-      // @media only screen and (max-width: $bp-medium) {
-      //     grid-template-columns: repeat(3, min-content max-content);
-      // }
+      @media only screen and (max-width: $bp-medium) {
+        // img: min-content, description: min-content side by side for 3 
+        grid-template-columns: repeat(3, min-content max-content);
+      }
 
-      // @media only screen and (max-width: $bp-small) {
-      //     grid-template-columns: min-content max-content;
-      // }
+      @media only screen and (max-width: $bp-small) {
+          grid-template-columns: min-content max-content;
+      }
   }
 
   &__img {

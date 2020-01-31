@@ -14,6 +14,12 @@ $color-grey-dark-2: #6D5D4B;
 $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
 
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 75em;   // 1200px / 16px
+$bp-large: 62.5em;   // 1000px
+$bp-medium: 50em;    // 800px;
+$bp-small: 37.5em;    // 600px;
+
 *,
 *::before, 
 *::after {
@@ -26,6 +32,11 @@ html {
   box-sizing: border-box;
   // 1rem = 10px 10px/16px = 62.5% b/c default browser font size is 16px
   font-size: 62.5%;
+
+  @media only screen and (max-width: $bp-largest) {
+    // 1rem = 8px b/c 50% of 1rem = 16px with 62.5%
+    font-size: 50%;  
+  }
 }
 
 body {
@@ -46,5 +57,18 @@ body {
   // max width = 14rem, min width = min-content
   // 8rem is for sidebar, 1fr both side to be 8 columns to  be center
   grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+
+  @media only screen and (max-width: $bp-large) {
+    // add new row for side bar 6rem(6 * 8px)
+    grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
+    // new content start with full-start
+    grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; 
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    // header: 6rem, sidebar: calc 
+    grid-template-rows: 6rem calc(100vh - 6rem);
+  }
+
 
 }
